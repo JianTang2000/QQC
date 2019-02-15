@@ -27,11 +27,11 @@ public class BillRemarkCondGrpParam {
 
     private Long lIrcParamId;
 
-    private Long sortOperateId;
+    private String sortOperator;
 
-    private Long RIrcParamId;
+    private Long rIrcParamId;
 
-    private Long apId;
+    private Long spId;
 
     public Long getBillRemarkId() {
         return billRemarkId;
@@ -65,28 +65,27 @@ public class BillRemarkCondGrpParam {
         this.lIrcParamId = lIrcParamId;
     }
 
-    public Long getSortOperateId() {
-        return sortOperateId;
+    public String getSortOperator() {
+        return sortOperator;
     }
 
-    public void setSortOperateId(Long sortOperateId) {
-        this.sortOperateId = sortOperateId;
+    public void setSortOperator(String sortOperator) {
+        this.sortOperator = sortOperator;
     }
 
-    public Long getRIrcParamId() {
-        return RIrcParamId;
+    public Long getSpId() {
+        return spId;
     }
 
-    public void setRIrcParamId(Long RIrcParamId) {
-        this.RIrcParamId = RIrcParamId;
+    public void setSpId(Long spId) {
+        this.spId = spId;
     }
 
-    public Long getApId() {
-        return apId;
+    public Long getrIrcParamId() {
+        return rIrcParamId;
     }
 
-    public void setApId(Long apId) {
-        this.apId = apId;
+    public void setrIrcParamId(Long rIrcParamId) {
+        this.rIrcParamId = rIrcParamId;
     }
-
 }

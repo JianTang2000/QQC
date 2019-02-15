@@ -37,8 +37,7 @@ public class QQCStructureMap<T> implements QQCStructure<T> {
 
     @Override
     @Deprecated
-    public void put(int index, Long start, Long end, List<T> tList) {
-
+    public void put(List<T> tList) {
     }
 
     @Override

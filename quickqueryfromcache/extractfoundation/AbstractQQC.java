@@ -68,40 +68,12 @@ public abstract class AbstractQQC<T> {
         }
     }
 
-    /**
-     * < tList MUST be ordering ASC >
-     */
-    protected void put(List<T> tList) {
-        if (ValidateUtil.validateNotEmpty(tList)) {
-            int volume = tList.size();// 103
-            int indexBlockSize = 50;
-            if (volume <= indexBlockSize) {
-                int index = 1;
-                Long start = IndexBlockKeyExplain.getKey(tList.get(0));
-                Long end = IndexBlockKeyExplain.getKey(tList.get(volume - 1));
-                qqcStructure.put(index, start, end, tList);
-            }
-            else {
-                int indexVolume = volume / indexBlockSize + (volume % indexBlockSize == 0 ? 0 : 1);// 3
-                for (int i = 1; i < indexVolume; i++) {
-                    int index = i;// 2
-                    List<T> tsTobePut = new ArrayList<>();
-                    Long start = IndexBlockKeyExplain.getKey(tList.get((index - 1) * indexBlockSize));// 50
-                    Long end = IndexBlockKeyExplain.getKey(tList.get(index * indexBlockSize - 1));// 99
-                    for (int m = (index - 1) * indexBlockSize; i <= index * indexBlockSize - 1; i++) {
-                        tsTobePut.add(tList.get(m));
-                    }
-                    qqcStructure.put(index, start, end, tsTobePut);
-                }
-                int index = indexVolume;// 3
-                List<T> tsTobePut = new ArrayList<>();
-                Long start = IndexBlockKeyExplain.getKey(tList.get((index - 1) * indexBlockSize));// 100
-                Long end = IndexBlockKeyExplain.getKey(tList.get(volume - 1));// 102
-                for (int m = (index - 1) * indexBlockSize; m <= volume - 1; m++) {
-                    tsTobePut.add(tList.get(m));
-                }
-                qqcStructure.put(index, start, end, tsTobePut);
-            }
+    public void cleanThenReload() {
+        synchronized (this) {
+            loaded = false;
+            qqcStructure.clean();
+            reload();
         }
     }
+
 }

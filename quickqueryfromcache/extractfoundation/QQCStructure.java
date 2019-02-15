@@ -29,10 +29,13 @@ public interface QQCStructure<T> {
      */
     void put(Object key, T t);
 
-    /**
-     * < put key-value >
-     */
-    void put(int index, Long start, Long end, List<T> tList);
+//    /**
+//     * < put key-value >
+//     */
+//    void put(int index, Long start, Long end, List<T> tList);
+
+    void put(List<T> tList);
+
 
     void clean();
 }

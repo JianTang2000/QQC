@@ -7,24 +7,24 @@ import org.springframework.stereotype.Component;
 
 import com.ztesoft.zsmart.bss.newbilling.invoicing.infrastructure.dao.inv.IIrcParamDAO;
 import com.ztesoft.zsmart.bss.newbilling.invoicing.sortfunction.quickqueryfromcache.extractfoundation.AbstractQQC;
-import com.ztesoft.zsmart.bss.newbilling.invoicing.sortfunction.quickqueryfromcache.model.BillRemarkCondGrpParam;
+import com.ztesoft.zsmart.bss.newbilling.invoicing.sortfunction.quickqueryfromcache.model.IrcParamDef;
 
 /**
- * < this is an EXP for QQCStructureIndex ><br>
+ * < ><br>
  *
  * @author tang.jian<br>
- * @CreateDate 2019/1/28 <br>
+ * @CreateDate 2019/1/31 <br>
  */
-@Component("BillRemarkCondGrpQQC")
-public class BillRemarkCondGrpQQC extends AbstractQQC<BillRemarkCondGrpParam> {
+@Component("IrcParamDefQQC")
+public class IrcParamDefQQC extends AbstractQQC<IrcParamDef> {
 
-    public List<BillRemarkCondGrpParam> get(Long billRemarkId) {
-        List<BillRemarkCondGrpParam> ret;
-        ret = qqcStructure.get(billRemarkId);
+    public IrcParamDef get(Long ircParamDefId) {
+        IrcParamDef ret;
+        ret = qqcStructure.get(ircParamDefId);
         if (null == ret && !loaded) {
             reload();
         }
-        ret = qqcStructure.get(billRemarkId);
+        ret = qqcStructure.get(ircParamDefId);
         return ret;
     }
 
@@ -35,7 +35,7 @@ public class BillRemarkCondGrpQQC extends AbstractQQC<BillRemarkCondGrpParam> {
      */
     @Override
     protected String initialize() {
-        return "I";
+        return "M";
     }
 
     @Autowired
@@ -43,7 +43,9 @@ public class BillRemarkCondGrpQQC extends AbstractQQC<BillRemarkCondGrpParam> {
 
     @Override
     protected void load() {
-        List<BillRemarkCondGrpParam> ret = ircParamDAO.selectAllBillRemarkCondGrp();
-        qqcStructure.put(ret);
+        List<IrcParamDef> ret = ircParamDAO.selectIrcParamDef();
+        for (IrcParamDef ircParamDef : ret) {
+            qqcStructure.put(ircParamDef.getIrcParamDefId(), ircParamDef);
+        }
     }
 }
