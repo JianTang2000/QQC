@@ -3,8 +3,8 @@ package com.ztesoft.zsmart.bss.newbilling.invoicing.sortfunction.quickqueryfromc
 import java.util.List;
 
 /**
- * < an index ><br>
- * <what is the index here? you can see https://www.cnblogs.com/ciyeer/p/9067048.html>
+ * < an index,"splitList" might be a better idea ><br>
+ * <you can see https://www.cnblogs.com/ciyeer/p/9067048.html>
  *
  * @author tang.jian<br>
  * @CreateDate 2019/1/28 <br>

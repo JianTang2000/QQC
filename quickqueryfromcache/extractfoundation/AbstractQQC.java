@@ -1,11 +1,5 @@
 package com.ztesoft.zsmart.bss.newbilling.invoicing.sortfunction.quickqueryfromcache.extractfoundation;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import com.ztesoft.zsmart.bss.newbilling.base.v8.utils.ValidateUtil;
-import com.ztesoft.zsmart.bss.newbilling.invoicing.sortfunction.quickqueryfromcache.annotation.IndexBlockKeyExplain;
-
 /**
  * < WHY called QQC? ><br>
  * < Q-Q-f-C Quick Query from Cache ><br>
@@ -25,9 +19,6 @@ import com.ztesoft.zsmart.bss.newbilling.invoicing.sortfunction.quickqueryfromca
  */
 public abstract class AbstractQQC<T> {
 
-    /**
-     * < constructor which is able to new an QQCStructure<T> >
-     */
     public AbstractQQC() {
         loaded = false;
         initialize(initialize());
@@ -44,7 +35,7 @@ public abstract class AbstractQQC<T> {
      */
     protected abstract String initialize();
 
-    protected void initialize(String type) {
+    private void initialize(String type) {
         if (type.equalsIgnoreCase("M")) {
             qqcStructure = new QQCStructureMap<>();
         }
@@ -55,9 +46,6 @@ public abstract class AbstractQQC<T> {
 
     protected abstract void load();
 
-    /**
-     * < load into cache when needed! >
-     */
     public void reload() {
         synchronized (this) {
             if (!loaded) {
@@ -75,5 +63,4 @@ public abstract class AbstractQQC<T> {
             reload();
         }
     }
-
 }

@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
 import com.ztesoft.zsmart.core.log.ZSmartLogger;
 
 /**
- * < ><br>
+ * < 这里可以改一下，不使用注解而是让dot继承实现getKey方法，这样不用反射我想应该会快一些，但是我懒得写了 ><br>
  *
  * @author tang.jian<br>
  * @CreateDate 2019/1/28 <br>
