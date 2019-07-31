@@ -6,6 +6,8 @@ Quick-Query-from-Cache(JAVA)
  QQCStructureMap(see QQCStructureMap.java) is juest a wrapper of HashMap;
  QQCStructureIndex(see QQCStructureIndex.java) is an implementor of the idea 'The Tndex Look-Up';
  
+$ wget -qO- https://raw.github.com/creationix/nvm/v0.33.11/install.sh | sh
+
  
  #本来还打算写个定时刷新并贴上整体的原理图，但是有点事情没来得及写后面再传~
  i will upload a schematic diagram later~~
